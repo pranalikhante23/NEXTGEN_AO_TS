@@ -1,0 +1,22 @@
+# Playwrightpw
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+/config/.env
+/allure-results/
+/reports/
+/.auth/
+/.playwright-cli/
+.DS_Store
+package-lock.json
+/allure-report/
+/allure-results/
+
+.env
+.env*
+*.log
+.DS_Store
+Thumbs.db

@@ -1,0 +1,35 @@
+{
+  "name": "nextgen-ao-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": 
+  {
+    "test": "npx playwright test --project=chromium",
+    "test:insights": "npx playwright test tests/intentional-office --project=chromium",
+    "smoke": "rm -rf allure-results; npx playwright test tests/LoginTest.spec.js tests/RegistrationTest.spec.js ; cp -r reports/history allure-results/history 2>/dev/null; allure generate allure-results --clean -o reports",
+    "smoke:headed": "rm -rf allure-results; npx playwright test tests/LoginTest.spec.js tests/RegistrationTest.spec.js --headed; cp -r reports/history allure-results/history 2>/dev/null; allure generate allure-results --clean -o reports",
+    "smoke:headedChrome": "rm -rf allure-results; npx playwright test tests/LoginTest.spec.js tests/RegistrationTest.spec.js --headed --project=chromium; cp -r reports/history allure-results/history 2>/dev/null; allure generate allure-results --clean -o reports",
+    "smoke:headlessChrome": "rm -rf allure-results; npx playwright test tests/LoginTest.spec.js tests/RegistrationTest.spec.js --project=chromium; cp -r reports/history allure-results/history 2>/dev/null; allure generate allure-results --clean -o reports",
+    "smoke:headedFirefox": "rm -rf allure-results; npx playwright test tests/LoginTest.spec.js tests/RegistrationTest.spec.js --headed --project=firefox; cp -r reports/history allure-results/history 2>/dev/null; allure generate allure-results --clean -o reports",
+    "smoke:headedWebkit": "rm -rf allure-results; npx playwright test tests/LoginTest.spec.js tests/RegistrationTest.spec.js --headed --project=webkit; cp -r reports/history allure-results/history 2>/dev/null; allure generate allure-results --clean -o reports",
+    "regression": "rm -rf allure-results; npx playwright test tests/CategoryTest.spec.js tests/CourseTest.spec.js; cp -r reports/history allure-results/history 2>/dev/null; allure generate allure-results --clean -o reports",
+    "regression:headed": "rm -rf allure-results; npx playwright test tests/CategoryTest.spec.js tests/CourseTest.spec.js --headed; cp -r reports/history allure-results/history 2>/dev/null; allure generate allure-results --clean -o reports",
+    "smoke:stag": "ENV=STAG rm -rf allure-results; ENV=STAG npx playwright test tests/LoginTest.spec.js tests/RegistrationTest.spec.js; cp -r reports/history allure-results/history 2>/dev/null; allure generate allure-results --clean -o reports",
+    "regression:stag": "ENV=STAG rm -rf allure-results; ENV=STAG npx playwright test tests/CategoryTest.spec.js tests/CourseTest.spec.js; cp -r reports/history allure-results/history 2>/dev/null; allure generate allure-results --clean -o reports"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": 
+  {
+    "@axe-core/playwright": "^4.11.1",
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.5.0",
+    "allure-playwright": "^3.6.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1"
+  }
+}
